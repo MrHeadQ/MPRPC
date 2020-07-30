@@ -1,0 +1,61 @@
+syntax = "proto3";//声明了protobuf的版本
+
+package rpcpr; //声明代码所在的包（对于C++来说是namespace）
+
+//默认不会生成RPC方法，所以需要添加option选项，表示生成服务和rpc选项
+option cc_generic_services=true;
+
+//代码重复，将其打包为一个类型
+message ResultCode
+{
+    int32 errcode=1;
+    string errmsg=2;
+}
+
+//定义登陆请求消息类型，name，pwd
+message LoginRequest
+{
+    string name=1;
+    string pwd=2;
+}
+
+//登陆响应消息类型
+message LoginResponse
+{
+    ResultCode result=1;
+    bool success=2;
+}
+
+//获取好友列表
+message GetFriendListsRequest
+{
+    uint32 userid=1;
+
+}
+
+//返回的用户信息结构
+message User
+{
+    bytes name=1;
+    uint32 age=2;
+    enum Sex
+    {
+        MAN=0;
+        WOMAN=1;
+    }
+    Sex sex=3;
+}
+
+//返回好友列表:repeated
+message GetFriendListsResponse
+{
+    ResultCode result=1;
+    repeated User friend_list=2;//定义了一个存储用户的列表类型
+}
+
+//在protobuf中怎么定义描述rpc方法的类型
+service UserServiceRpc
+{
+    rpc Login(LoginRequest)returns(LoginResponse);//定义RPC方法，需要传的参数和需要返回的类型
+    rpc GetFriendLists (GetFriendListsRequest) returns (GetFriendListsResponse);
+}

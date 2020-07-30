@@ -1,0 +1,15 @@
+12:17:17 => [error] first log message!
+12:17:17 => [error] /home/wang/wang/RPC_Pro/example/callee/friendservice.cc:main:45
+12:17:17 => [info] service_name:FriendServiceRpc
+12:20:35 => [info] first log message!
+12:20:35 => [info] /home/wang/wang/RPC_Pro/example/callee/friendservice.cc:main:45
+12:20:35 => [info] service_name:FriendServiceRpc
+12:20:35 => [info] method_name:GetFriendList
+12:22:54 => [info] first log message!
+12:22:54 => [info] /home/wang/wang/RPC_Pro/example/callee/friendservice.cc:main:45
+12:22:54 => [info] service_name:FriendServiceRpc
+12:22:54 => [info] method_name:GetFriendList
+12:44:1 => [info] first log message!
+12:44:1 => [info] /home/wang/wang/RPC_Pro/example/callee/friendservice.cc:main:45
+12:44:1 => [info] service_name:FriendServiceRpc
+12:44:1 => [info] method_name:GetFriendList
